@@ -10,7 +10,7 @@ time.
   verifier script asserts our logits match HF bitwise (top-5 + 32-token
   greedy rollout) and our chat-template output matches
   `tokenizer.apply_chat_template` byte-for-byte.
-- React + Vite frontend with a VS Code / Cursor dark theme. Two WebSockets:
+- React + Vite frontend. Two WebSockets:
   `/ws/chat` streams tokens, `/ws/telemetry` streams memory at ~20 Hz.
 - Cache on/off toggle so the pedagogical point — attention compute is
   **O(n²) per step** without a cache — is a single click away.
@@ -169,9 +169,7 @@ src/kvcache_explored/
 scripts/
   verify_against_hf.py        continuous HF oracle
   demo_quadratic.py           CLI demo of cache-on vs cache-off per-token cost
-  diag_cache.py               per-step cache vs no-cache logit diagnostic
   memory_report.py            CLI memory breakdown
-  smoke_ws.py                 hits /ws/chat with a tiny request
 web/
   package.json                vite + react + ts
   vite.config.ts              dev server proxies /ws/* and /api/* to :8000
