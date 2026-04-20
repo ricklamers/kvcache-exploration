@@ -15,6 +15,16 @@ time.
 - Cache on/off toggle so the pedagogical point — attention compute is
   **O(n²) per step** without a cache — is a single click away.
 
+## What it looks like
+
+**KV cache on:** pre-allocated KV buffer (green band) + flat ~15 ms/token latency.
+
+![KV cache on: flat 15 ms/token latency, 3.5 GB KV cache allocated](docs/kvcache-on.png)
+
+**KV cache off:** no green band in the memory chart, but per-token latency climbs visibly as the prefix grows.
+
+![KV cache off: rising per-token latency, no KV allocation](docs/kvcache-off.png)
+
 ## Requirements
 
 - Apple Silicon Mac (M1 or newer). 16 GB unified memory recommended if you
